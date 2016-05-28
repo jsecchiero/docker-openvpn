@@ -188,6 +188,7 @@ export OVPN_TLS_CIPHER OVPN_CIPHER OVPN_AUTH
 export OVPN_COMP_LZO
 export OVPN_OTP_AUTH
 export OVPN_FRAGMENT
+export OVPN_RESOLVCONF
 
 # Preserve config
 if [ -f "$OVPN_ENV" ]; then
@@ -219,7 +220,7 @@ persist-tun
 
 proto $OVPN_PROTO
 # Rely on Docker to do port mapping, internally always 1194
-port 1194
+port 443
 dev $OVPN_DEVICE$OVPN_DEVICEN
 status /tmp/openvpn-status.log
 
