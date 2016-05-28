@@ -78,7 +78,6 @@ OVPN_TLS_CIPHER=''
 OVPN_CIPHER=''
 OVPN_AUTH=''
 OVPN_EXTRA_CONFIG=''
-OVPN_RESOLVCONF=1
 
 # Import defaults if present
 [ -r "$OVPN_ENV" ] && source "$OVPN_ENV"
@@ -127,6 +126,9 @@ while getopts ":a:e:C:T:r:s:du:cp:n:DNmf:tz2" opt; do
             ;;
         m)
             OVPN_MTU=$OPTARG
+            ;;
+        r)
+            OVPN_RESOLVCONF=1
             ;;
         t)
             OVPN_DEVICE="tap"
