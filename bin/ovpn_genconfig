@@ -49,6 +49,7 @@ usage() {
     echo " -T    Encrypt packets with the given cipher algorithm instead of the default one (tls-cipher)."
     echo " -C    A list of allowable TLS ciphers delimited by a colon (cipher)."
     echo " -a    Authenticate  packets with HMAC using the given message digest algorithm (auth)."
+    echo " -R    Enable resol.conf update"
     echo " -z    Enable comp-lzo compression."
     echo " -2    Enable two factor authentication using Google Authenticator."
     echo " -f    Set the fragment directive."
@@ -127,7 +128,7 @@ while getopts ":a:e:C:T:r:s:du:cp:n:DNmf:tz2" opt; do
         m)
             OVPN_MTU=$OPTARG
             ;;
-        r)
+        R)
             OVPN_RESOLVCONF=1
             ;;
         t)
