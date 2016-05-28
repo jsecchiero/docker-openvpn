@@ -3,7 +3,7 @@
 # Smallest base image
 FROM alpine:3.2
 
-MAINTAINER Kyle Manna <kyle@kylemanna.com>
+MAINTAINER jacopo secchiero <looooop@gmail.com>
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories && \
     echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
@@ -19,8 +19,8 @@ ENV EASYRSA_VARS_FILE $OPENVPN/vars
 
 VOLUME ["/etc/openvpn"]
 
-# Internally uses port 1194/udp, remap using `docker run -p 443:1194/tcp`
-EXPOSE 1194/udp
+# Internally uses port 443/tcp, remap using `docker run -p 443:443/tcp`
+EXPOSE 443/tcp
 
 WORKDIR /etc/openvpn
 CMD ["ovpn_run"]

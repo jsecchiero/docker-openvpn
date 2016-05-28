@@ -14,7 +14,7 @@ Restart=always
 Environment="NAME=ovpn-%i"
 Environment="DATA_VOL=ovpn-data-%i"
 Environment="IMG=kylemanna/openvpn:latest"
-Environment="PORT=1194:1194/udp"
+Environment="PORT=443:443/tcp"
 
 # To override environment variables, use local configuration directory:
 # /etc/systemd/system/docker-openvpn@foo.d/local.conf

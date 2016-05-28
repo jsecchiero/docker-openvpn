@@ -69,6 +69,12 @@ $OVPN_ADDITIONAL_CLIENT_CONFIG
         echo "redirect-gateway def1"
     fi
 
+    if [ "$OVPN_RESOLVCONF" != "0" ];then
+        echo "script-security 2"
+        echo "up /etc/openvpn/update-resolv-conf"
+        echo "down /etc/openvpn/update-resolv-conf"
+    fi
+
     if [ -n "$OVPN_MTU" ]; then
         echo "tun-mtu $OVPN_MTU"
     fi
