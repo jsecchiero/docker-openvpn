@@ -16,10 +16,6 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 * Docker Registry @ [jsecchiero/openvpn](https://hub.docker.com/r/jsecchiero/openvpn/)
 * GitHub @ [jsecchiero/docker-openvpn](https://github.com/jsecchiero/docker-openvpn)
 
-#### Example Service
-
-* [backroad.io](http://beta.backroad.io?utm_source=jsecchiero/openvpn&utm_medium=readme&utm_campaign=20150621) - powered by *jsecchiero/openvpn*
-
 ## Quick Start
 
 * Create the `$OVPN_DATA` volume container, i.e. `OVPN_DATA="ovpn-data"`
