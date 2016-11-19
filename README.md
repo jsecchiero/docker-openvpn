@@ -35,9 +35,9 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
     - On Docker older than version 1.2
 
-            docker run -v /etc/vpn:/etc/openvpn $OVPN_DATA -d -p 1194:1194/udp --privileged jsecchiero/openvpn
+            docker run -v /etc/vpn:/etc/openvpn -d -p 1194:1194/udp --privileged jsecchiero/openvpn
 
-* Generate a client certificate without a passphrase
+* Generate a client certificate without a passphrase, the ca password is needed here
 
         docker run run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
 
