@@ -39,11 +39,11 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
 * Generate a client certificate without a passphrase, the ca password is needed here
 
-        docker run run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
+        docker run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
 
 * Retrieve the client configuration with embedded certificates
 
-        docker run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
+         docker run -v /etc/vpn:/etc/openvpn --rm jsecchiero/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
 
 ## Debugging Tips
 
