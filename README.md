@@ -35,7 +35,7 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
     - On Docker older than version 1.2
 
-            docker run --volumes-from $OVPN_DATA -d -p 1194:1194/udp --privileged jsecchiero/openvpn
+            docker run -v /etc/vpn:/etc/openvpn $OVPN_DATA -d -p 1194:1194/udp --privileged jsecchiero/openvpn
 
 * Generate a client certificate without a passphrase
 
@@ -43,13 +43,13 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
 * Retrieve the client configuration with embedded certificates
 
-        docker run --volumes-from $OVPN_DATA --rm jsecchiero/openvpn ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
+        docker run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
 
 ## Debugging Tips
 
 * Create an environment variable with the name DEBUG and value of 1 to enable debug output (using "docker -e").
 
-        docker run --volumes-from $OVPN_DATA -p 1194:1194/udp --privileged -e DEBUG=1 jsecchiero/openvpn
+        docker run -v /etc/vpn:/etc/openvpn -p 1194:1194/udp --privileged -e DEBUG=1 jsecchiero/openvpn
 
 * Test using a client that has openvpn installed correctly 
 
