@@ -24,14 +24,14 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
 * Initialize the `$OVPN_DATA` container that will hold the configuration files and certificates
 
-        docker run --volumes-from $OVPN_DATA --rm jsecchiero/openvpn ovpn_genconfig -u udp://VPN.SERVERNAME.COM
-        docker run --volumes-from $OVPN_DATA --rm -it jsecchiero/openvpn ovpn_initpki
+        docker run -v /etc/vpn:/etc/openvpn --rm jsecchiero/openvpn ovpn_genconfig -u udp://VPN.SERVERNAME.COM
+        docker run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn ovpn_initpki
 
 * Start OpenVPN server process
 
     - On Docker [version 1.2](http://blog.docker.com/2014/08/announcing-docker-1-2-0/) and newer
 
-            docker run --volumes-from $OVPN_DATA -d -p 1194:1194/udp --cap-add=NET_ADMIN jsecchiero/openvpn
+            docker run -v /etc/vpn:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN jsecchiero/openvpn
 
     - On Docker older than version 1.2
 
@@ -39,7 +39,7 @@ a corresponding [Digital Ocean Community Tutorial](http://bit.ly/1AGUZkq).
 
 * Generate a client certificate without a passphrase
 
-        docker run --volumes-from $OVPN_DATA --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
+        docker run run -v /etc/vpn:/etc/openvpn --rm -it jsecchiero/openvpn easyrsa build-client-full CLIENTNAME nopass
 
 * Retrieve the client configuration with embedded certificates
 
